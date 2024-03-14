@@ -1,0 +1,4 @@
+<%= @users.each do | user | %>
+    <b><%= image_tag(user.profile_image, size:"45x45", class:"rounded-circle") if user.profile_image.attached? %> 
+    <%= user.email %><b></td>
+    <% end %>

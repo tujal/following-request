@@ -1,0 +1,23 @@
+<nav class="navbar bg-white">
+<div class="container">
+<div>
+<h3>Instagram</h3>
+</div>
+    <div class="d-flex" >
+    <% if user_signed_in? %>
+        <%= link_to user_list_path(current_user) do %>
+            <img src="https://cdn-icons-png.flaticon.com/128/4458/4458537.png", style="width:30px; height:30px">
+        <% end %>
+        &nbsp;&nbsp;
+        <%= link_to request_path(current_user) do %>
+            <img src="https://cdn-icons-png.flaticon.com/128/4682/4682173.png", style="width:30px; height:30px">
+        <% end %>
+            <div>
+        &nbsp; Logged in as  &nbsp; &nbsp;<%= image_tag(current_user.profile_image, size:"45x45", class:"rounded-circle") if current_user.profile_image.attached? %> <strong><%= link_to current_user.email, profile_path(current_user) %></strong>.
+    <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary btn-sm" %> 
+    <%= button_to "Logout", destroy_user_session_path,method: :delete, class: "btn btn-danger btn-sm"  %>
+    </div>
+    <% end %>
+    </div>
+</div>
+</nav>
